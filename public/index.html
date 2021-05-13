@@ -12,19 +12,21 @@
 
 <body>
 
-    <script>
+    <button onclick="sendMessage()">Send message</button>
 
-        window.addEventListener('load', () => {
-            const socket = new io('http://localhost:3000');
+    <script defer>
+        const socket = new io('http://localhost:3000');
+
+        function sendMessage() {
 
             if (!socket) {
                 return;
             }
 
-            for (var i = 0; i < 10; i++) {
-                socket.emit('new message', `Hello World ${i}`);
-            }
-        })
+            console.log('Hello!')
+
+            socket.emit('new message', `Hello World`);
+        }
     </script>
 
 </body>
